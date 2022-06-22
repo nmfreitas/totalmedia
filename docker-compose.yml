@@ -1,0 +1,131 @@
+# Todas as imagens utilizadas sao disponibilizadas pelo LinuxServer.io e podem ser encontradas tanto no site como na pagina do GITHUB.
+##Este documento tem 7 aplicacoes. Caso nao pretendas instalar alguma delas e so eliminares. 
+#Se tiveres alguma dificuldade ou questao podes ir ao Instagram @techtretas ou ao site techtretas.tk
+# Para todos os servicos estarem "interligados" tem de se integrar as APIs dos mesmo. 
+# Se tiveres dificuldade na configuracao segue o tutorial na pagina techtretas.tk
+###IMPORTANTE###
+## Verificar se os caminhos estao corretos com o que esta definido a baixo. Caso necessario trocar os caminhos para os correspondentes.
+
+##Path para configs 
+
+#/portainer/Files/AppData/Config/#Nome da APP
+
+## Pasta onde fica guardado as configs da aplicacao
+
+##Path para conteudo
+
+### Caso o local onde vao guardar os downloads seja diferente, mudar no "PATH para Conteudo"
+
+#/docker/Media/Series:/media/Series
+
+#/docker/Media/Filmes:/media/Filmes
+
+#/docker/Torrents:/media/Downloads
+
+#/docker/Configs/:/config
+
+version: '3' 
+
+services:
+
+  radarr: # download de filmes
+    container_name: radarr
+    restart: unless-stopped
+    ports:
+     - 7878:7878
+    volumes:
+     - /docker/Configs/Radarr:/config
+     - /docker/Torrents:/media/Downloads
+     - /docker/Media/Filmes:/media/Filmes
+    environment:
+     - PUID=1000
+     - PGID=1000
+     - TZ=Europe/London
+    image: linuxserver/radarr
+
+  sonarr: # download de series
+    container_name: sonarr
+    restart: unless-stopped
+    ports:
+     - 8989:8989
+    volumes:
+     - /docker/Configs/Sonarr:/config
+     - /docker/Torrents:/media/Downloads
+     - /docker/Media/Series:/media/Series
+    environment:
+     - PUID=1000
+     - PGID=1000
+     - TZ=Europe/London
+    image: linuxserver/sonarr
+
+  prowlarr: # Indexers para o Transmission
+    image: lscr.io/linuxserver/prowlarr:develop
+    container_name: prowlarr
+    environment:
+     - PUID=1000
+     - PGID=1000
+     - TZ=Europe/London
+    volumes:
+     - /docker/Configs/Prowlarr:/config
+    ports:
+     - 9696:9696
+    restart: unless-stopped
+
+  overseerr: # escolher filmes e series de forma facil
+    image: lscr.io/linuxserver/overseerr
+    container_name: overseerr
+    environment:
+     - PUID=1000
+     - PGID=1000
+     - TZ=Europe/London
+    volumes:
+     - /docker/Configs/Overseerr:/config
+    ports:
+     - 5055:5055
+    restart: unless-stopped
+
+  bazarr: # Downalod de legendas 
+    image: lscr.io/linuxserver/bazarr
+    container_name: bazarr
+    environment:
+     - PUID=1000
+     - PGID=1000
+     - TZ=Europe/London
+    volumes:
+     -/docker/Configs/Bazarr:/config
+     - /docker/Media/Filmes:/media/Filmes
+     - /docker/Media/Series:/media/Series
+    ports:
+     - 6767:6767
+    restart: unless-stopped
+
+  plex: # Aplicacao para ver series e filmes
+    image: lscr.io/linuxserver/plex
+    container_name: plex
+    network_mode: host
+    environment:
+     - PUID=1000
+     - PGID=1000
+     - VERSION=docker
+    volumes:
+     - /docker/Configs/Plex:/config
+     - /docker/Media/Series:/media/Series
+     - /docker/Media/Filmes:/media/Filmes
+    restart: unless-stopped
+    
+  transmission:
+    image: lscr.io/linuxserver/transmission:latest
+    container_name: transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /docker/Configs/Transmission:/config
+      - /docker/Torrents:/media/Downloads:/downloads
+      - /docker/Configs/Transmission/watch:/watch
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    restart: unless-stopped  
