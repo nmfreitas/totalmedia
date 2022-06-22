@@ -45,5 +45,9 @@ cd /docker
 
 sleep 2
 ls 
+sleep 2
 
+echo "Instalar os serviços, pode demorar alguns minutos"
+sudo docker-compose up -d
+echo "tudo instalado"
 
