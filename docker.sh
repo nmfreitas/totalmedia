@@ -54,9 +54,9 @@ sleep 2
 ls 
 sleep 2
 
-echo "Instalar os serviços, pode demorar alguns minutos"
+echo "Instalar os servicos, pode demorar alguns minutos"
 sudo docker-compose up -d
 echo "tudo instalado"
 
 echo "servicos instlados, acede ao portainers para teres acederes"
-echo "e necessario confirar as APIs e criar uma conta plex se ainda nao tiveres"
+echo "e necessario configurar as APIs nas aplicacoes e criar uma conta plex se ainda nao tiveres"
