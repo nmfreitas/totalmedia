@@ -59,7 +59,7 @@ services:
     image: linuxserver/sonarr
 
   prowlarr: # Indexers para o Transmission
-    image: lscr.io/linuxserver/prowlarr
+    image: linuxserver/prowlarr
     container_name: prowlarr
     environment:
      - PUID=1000
