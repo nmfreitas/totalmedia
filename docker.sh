@@ -5,6 +5,7 @@ echo "update feito"
 
 sleep 2
 echo "instalar o docker"
+sleep 2
 
 sudo apt-get remove docker docker-engine docker.io containerd runc -y
 sudo apt-get update -y
@@ -20,26 +21,29 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update -y
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
-echo "docker instalado"
 
 sleep 2
-echo "instalar o partainer"
+echo "docker instalado"
+sleep 2
+echo "instalar o portainer"
+sleep 2
 
 sudo docker volume create portainer_data
-docker run -d -p 9000:9000 --name portainer \
+sudo docker run -d -p 9000:9000 --name portainer \
     --restart=always \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v portainer_data:/data \
     portainer/portainer-ce:latest
 
+sleep 2
 echo "portainer instalado na porta 9000"
-
 sleep 2
 
 sudo mkdir /docker
 sudo mv docker-compose.yml /docker
 cd /docker
 
+sleep 2
 ls 
 
 
