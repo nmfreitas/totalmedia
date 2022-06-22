@@ -50,6 +50,7 @@ sudo mkdir /docker
 sudo mv docker-compose.yml /docker
 cd /docker
 
+
 sleep 2
 ls 
 sleep 2
@@ -65,3 +66,9 @@ echo "acede a http://localhost:9000 para criar um utilizador no Portainer e tere
 echo "links das apps:"
 echo "Portianer: " "http://localhost:9000 "
 echo "Radarr: " "http://localhost:7878 "
+echo "Sonarr: " "http://localhost:8989 "
+echo "Prowlarr: " "http://localhost:9696 "
+echo "Overseerr: " "http://localhost:5055 "
+echo "Bazarr: " "http://localhost:6767 "
+echo "Transmission: " "http://localhost:9091 "
+echo "Plex: " "http://localhost:32400/web "

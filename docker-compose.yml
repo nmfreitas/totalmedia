@@ -129,3 +129,11 @@ services:
       - 51413:51413
       - 51413:51413/udp
     restart: unless-stopped  
+
+#  homer:
+#    ports:
+#      - '8080:8080'
+#    volumes:
+#      - /docker/Configs/Homer:/www/assets
+#    restart: always
+#    image: 'b4bz/homer:latest'  
