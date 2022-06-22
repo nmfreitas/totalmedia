@@ -22,9 +22,18 @@ echo \
 sudo apt-get update -y
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 
-sleep 2
+
 echo "docker instalado"
+sleep 1
+echo "instalar o portainer"
 sleep 2
+
+echo "instalar o docker-compose"
+sudo apt install docker-compose
+echo "docker-compose instalado"
+
+sleep 1
+
 echo "instalar o portainer"
 sleep 2
 
