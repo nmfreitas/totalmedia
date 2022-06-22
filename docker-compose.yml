@@ -92,7 +92,7 @@ services:
      - PGID=1000
      - TZ=Europe/London
     volumes:
-     -/docker/Configs/Bazarr:/config
+     - /docker/Configs/Bazarr:/config
      - /docker/Media/Filmes:/media/Filmes
      - /docker/Media/Series:/media/Series
     ports:
