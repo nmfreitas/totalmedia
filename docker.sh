@@ -22,11 +22,9 @@ echo \
 sudo apt-get update -y
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 
-
 echo "docker instalado"
 sleep 1
-echo "instalar o portainer"
-sleep 2
+
 
 echo "instalar o docker-compose"
 sudo apt install docker-compose
@@ -60,3 +58,5 @@ echo "Instalar os serviços, pode demorar alguns minutos"
 sudo docker-compose up -d
 echo "tudo instalado"
 
+echo "servicos instlados, acede ao portainers para teres acederes"
+echo "e necessario confirar as APIs e criar uma conta plex se ainda nao tiveres"
