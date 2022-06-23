@@ -62,14 +62,14 @@ sudo docker-compose up -d
 echo -e "${BLUE}Tudo instalado${NC}"
 sleep 1
 
-echo "Acede a ${BLUE}http://localhost:9000${NC} para criar um utilizador no Portainer e teres acesso rapido e facil aos containers"
+echo -e "Acede a ${BLUE}http://localhost:9000${NC} para criar um utilizador no Portainer e teres acesso rapido e facil aos containers"
 sleep 1
 echo "Links das apps:"
-echo "Portianer: " " ${BLUE}http://localhost:9000${NC}"
-echo "Radarr: " " ${BLUE}http://localhost:7878${NC}"
-echo "Sonarr: " " ${BLUE}http://localhost:8989${NC}"
-echo "Prowlarr: " "${BLUE}http://localhost:9696 ${NC}"
-echo "Overseerr: " " ${BLUE}http://localhost:5055${NC}"
-echo "Bazarr: " "${BLUE}http://localhost:6767 ${NC}"
-echo "Transmission: " " ${BLUE}http://localhost:9091${NC}"
-echo "Plex: " " ${BLUE}http://localhost:32400/web${NC}"
+echo -e "Portianer: " " ${BLUE}http://localhost:9000${NC}"
+echo -e "Radarr: " " ${BLUE}http://localhost:7878${NC}"
+echo -e "Sonarr: " " ${BLUE}http://localhost:8989${NC}"
+echo -e "Prowlarr: " "${BLUE}http://localhost:9696 ${NC}"
+echo -e "Overseerr: " " ${BLUE}http://localhost:5055${NC}"
+echo -e "Bazarr: " "${BLUE}http://localhost:6767 ${NC}"
+echo -e "Transmission: " " ${BLUE}http://localhost:9091${NC}"
+echo -e "Plex: " " ${BLUE}http://localhost:32400/web${NC}"
