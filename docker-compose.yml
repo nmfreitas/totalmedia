@@ -59,7 +59,7 @@ services:
     image: linuxserver/sonarr
 
   prowlarr: # Indexers para o Transmission
-    image: linuxserver/prowlarr
+    image: lscr.io/linuxserver/prowlarr:develop
     container_name: prowlarr
     environment:
      - PUID=1000
@@ -129,6 +129,13 @@ services:
       - 51413:51413
       - 51413:51413/udp
     restart: unless-stopped  
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /root/.docker/config.json:/config.json
+    command: --interval 30
 
 #  homer:
 #    ports:
