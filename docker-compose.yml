@@ -8,7 +8,7 @@
 
 #/docker/Media/Filmes:/media/Filmes
 
-#/docker/media/Downloads:/downloads
+#/docker/Media/Downloads:/downloads
 
 #/docker/Configs/Nome-da-app:/config
 
@@ -110,7 +110,7 @@ services:
       - TZ=Europe/London
     volumes:
       - /docker/Configs/Transmission:/config
-      - /docker/media/Downloads:/downloads
+      - /docker/Media/Downloads:/downloads
       - /docker/Configs/Transmission/watch:/watch
     ports:
       - 9091:9091
