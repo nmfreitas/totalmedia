@@ -54,7 +54,7 @@ ls
 sleep 1
 
 echo "Instalar os servicos, pode demorar alguns minutos"
-#sudo docker-compose up -d
+sudo docker-compose up -d
 echo "tudo instalado"
 
 echo "servicos instlados, acede ao portainers para teres acederes"
