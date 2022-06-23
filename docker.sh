@@ -3,9 +3,9 @@
 sudo apt update && sudo apt upgrade -y
 echo "update feito"
 
-sleep 2
+sleep 1
 echo "instalar o docker"
-sleep 2
+sleep 1
 
 sudo apt-get remove docker docker-engine docker.io containerd runc -y
 sudo apt-get update -y
@@ -15,7 +15,7 @@ sudo apt-get install  \
     gnupg \
     lsb-release
 sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg -y | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg  | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -30,10 +30,8 @@ echo "instalar o docker-compose"
 sudo apt install docker-compose -y
 echo "docker-compose instalado"
 
-sleep 1
-
 echo "instalar o portainer"
-sleep 2
+sleep 1
 
 sudo docker volume create portainer_data
 sudo docker run -d -p 9000:9000 --name portainer \
@@ -42,18 +40,18 @@ sudo docker run -d -p 9000:9000 --name portainer \
     -v portainer_data:/data \
     portainer/portainer-ce:latest
 
-sleep 2
-echo "portainer instalado na porta 9000"
-sleep 2
+sleep 1
+echo "Portiner instalado"
+sleep 1
 
 sudo mkdir /docker
 sudo mv docker-compose.yml /docker
 cd /docker
 
 
-sleep 2
+sleep 1
 ls 
-sleep 2
+sleep 1
 
 echo "Instalar os servicos, pode demorar alguns minutos"
 #sudo docker-compose up -d

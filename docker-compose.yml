@@ -1,18 +1,6 @@
-# Todas as imagens utilizadas sao disponibilizadas pelo LinuxServer.io e podem ser encontradas tanto no site como na pagina do GITHUB.
-##Este documento tem 7 aplicacoes. Caso nao pretendas instalar alguma delas e so eliminares. 
 #Se tiveres alguma dificuldade ou questao podes ir ao Instagram @techtretas ou ao site techtretas.tk
-# Para todos os servicos estarem "interligados" tem de se integrar as APIs dos mesmo. 
-# Se tiveres dificuldade na configuracao segue o tutorial na pagina techtretas.tk
-###IMPORTANTE###
-## Verificar se os caminhos estao corretos com o que esta definido a baixo. Caso necessario trocar os caminhos para os correspondentes.
-
-##Path para configs 
-
-#/portainer/Files/AppData/Config/#Nome da APP
-
-## Pasta onde fica guardado as configs da aplicacao
-
-##Path para conteudo
+                                              ###IMPORTANTE###
+## Verificar se os caminhos estao corretos com o que esta definido a baixo. Caso necessario trocar os caminhos para os pretendidos.
 
 ### Caso o local onde vao guardar os downloads seja diferente, mudar no "PATH para Conteudo"
 
@@ -22,7 +10,7 @@
 
 #/docker/Torrents:/media/Downloads
 
-#/docker/Configs/:/config
+#/docker/Configs/Nome-da-app:/config
 
 version: '3' 
 

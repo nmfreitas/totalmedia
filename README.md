@@ -1,13 +1,13 @@
 # totalmedia
-Isto instalar serviços de media via docker compose
+Script isntalar o docker.io, docker-compose e Portainer via apt , apt get e 'docker run'
 
-Script isntalar o docker.io e docker-compose via apt e apt get
-
-de seguida faz pull do repo e instala os serviços via docker-compose.
+Containers instalados via docker-compose.
 
 Serviços que instala:
   - Docker.io
   - Docker-Compose
+  - Portainer
+  - Watchtower
   - Plex
   - Transmission
   - ARR's:
