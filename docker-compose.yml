@@ -33,7 +33,7 @@ services:
 
   sonarr: # download de series
     container_name: sonarr
-    restart: unless-stopped
+    image: linuxserver/sonarr
     ports:
      - 8989:8989
     volumes:
@@ -44,7 +44,7 @@ services:
      - PUID=1000
      - PGID=1000
      - TZ=Europe/London
-    image: linuxserver/sonarr
+    restart: unless-stopped 
 
   prowlarr: # Indexers para o Transmission
     image: lscr.io/linuxserver/prowlarr:develop
@@ -116,6 +116,19 @@ services:
       - 9091:9091
       - 51413:51413
       - 51413:51413/udp
+    restart: unless-stopped  
+
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    environment:
+      PUID=1000
+      PGID=1000
+    ports:
+      - 3000:3000
+    volumes:
+      -  /docker/Configs/Homepage:/app/config # Make sure your local config directory exists
+      - /var/run/docker.sock:/var/run/docker.sock:ro # optional, for docker integrations
     restart: unless-stopped  
 
   watchtower:
